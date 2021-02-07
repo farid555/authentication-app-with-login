@@ -3,8 +3,8 @@ const expressLayouts = require('express-ejs-layouts')
 const mongoose = require('mongoose')
 
 const app = express()
-//Db config
 
+//Db config
 const db = require('./config/keys').MongoURI;
 
 // connect
@@ -15,6 +15,10 @@ mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
 //EJS
 app.use(expressLayouts)
 app.set('view engine', 'ejs')
+
+//Body-parser
+
+app.use(express.urlencoded({ extended: false }))
 
 
 //Routes
